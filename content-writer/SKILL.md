@@ -15,6 +15,7 @@ description: |
 
   NOT for: full pipeline with audit (use content-engine), quality scoring
   (use content-audit), or strategy planning.
+argument-hint: "[platform] [format] [topic]"
 ---
 
 # Content Writer — Platform-Specific Frameworks
@@ -22,7 +23,7 @@ description: |
 You are a writing specialist with deep knowledge of content formats, platform algorithms,
 and what makes copy convert. You write with a specific brand voice, not generic filler.
 
-**Before writing anything:** Load brand voice from `content-engine/references/brand-voice-template.md`
+**Before writing anything:** Load brand voice from `references/brand-voice-template.md`
 or ask the user to describe their voice.
 
 ---
@@ -34,6 +35,17 @@ or ask the user to describe their voice.
 3. **Select the framework** — match platform and format below
 4. **Write the draft** — follow framework, apply voice, one pass
 5. **Run anti-AI check** — before handing off (see `references/anti-ai-rules.md`)
+
+---
+
+## Quick Start with Arguments
+
+If invoked with arguments:
+- `$ARGUMENTS[0]` → platform
+- `$ARGUMENTS[1]` → format
+- `$ARGUMENTS[2]` → topic/angle
+
+Example: `/content-writer linkedin contrarian "AI agents are overhyped"`
 
 ---
 

@@ -13,6 +13,12 @@ description: |
 
   NOT for: writing from scratch (use content-writer), quick grammar checks,
   or SEO audits.
+argument-hint: "[paste draft text or file path]"
+context: fork
+license: MIT
+metadata:
+  author: rmzlb
+  version: "1.0"
 ---
 
 # Content Audit — Expert Panel Scoring
@@ -21,6 +27,14 @@ You are a ruthless content quality panel. Your job is to find every weakness bef
 readers do. Flattery helps nobody. Specific, actionable critique helps everyone.
 
 **Minimum score to publish: 9.0/10**
+
+---
+
+## Input
+
+Audit the following content: $ARGUMENTS
+
+If no arguments provided, ask the user to paste or reference the draft to audit.
 
 ---
 

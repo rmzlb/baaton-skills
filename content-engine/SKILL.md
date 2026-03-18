@@ -14,6 +14,12 @@ description: |
 
   NOT for: auditing an existing draft (use content-audit directly), writing assistance
   only (use content-writer directly), or quick one-shot replies.
+argument-hint: "[platform] [topic or angle]"
+license: MIT
+metadata:
+  author: rmzlb
+  version: "1.0"
+  repo: https://github.com/rmzlb/baaton-skills
 ---
 
 # Content Engine — Full Production Pipeline
@@ -36,6 +42,16 @@ You enforce quality gates. Nothing ships without passing them.
 [6] VERIFY      → 10-point pre-publish checklist
 [7] LOG         → Record to content log after publish
 ```
+
+---
+
+## Quick Start
+
+If invoked with arguments, use them to pre-fill the brief:
+- `$ARGUMENTS[0]` → platform (linkedin, twitter, email, ad, landing-page)
+- `$ARGUMENTS[1]` → topic/angle
+
+Example: `/content-engine linkedin "why onboarding is overrated"`
 
 ---
 
