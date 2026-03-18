@@ -1,166 +1,139 @@
-# Agent Skills Collection
+# baaton-skills
 
-Open-source skills for AI coding agents. Works with **Claude Code**, **Cursor**, **OpenClaw**, **Gemini CLI**, **Goose**, and any tool supporting the [AgentSkills](https://agentskills.io) standard.
+Open-source agent skills. Plug them into **Claude Code**, **Cursor**, **Gemini CLI**, **Goose**, or [any AgentSkills-compatible tool](https://agentskills.io).
 
-Skills are structured instruction sets that make AI agents dramatically better at specific tasks. Instead of generic prompts, skills encode expert-level workflows with quality gates, scoring systems, and verification loops.
-
----
-
-## Marketing Skills Suite (6 skills)
-
-A complete marketing pipeline from strategy to analytics. Each skill handles one phase. Together, they cover the full loop:
-
-```
-Strategy → Create → Audit → Repurpose → Distribute → Analyze → ♻️ Strategy
-```
-
-### 🧭 [marketing-strategy/](./marketing-strategy/) — Strategic Foundations
-
-Everything BEFORE content creation: ICP definition, buyer personas, positioning (April Dunford framework), messaging matrices, competitive analysis, and go-to-market planning.
-
-- ICP builder with firmographics, technographics, behavioral signals
-- Buyer personas with Adele Revella's 5 Rings of Buying Insight
-- Positioning framework (Obviously Awesome adapted) + category decision tree
-- Messaging matrix: persona × funnel stage with filled examples
-- Competitive analysis templates (feature matrix, positioning map, SWOT)
-- GTM launch checklist: pre-launch (60 days), launch week, post-launch
-
-### 🔧 [content-engine/](./content-engine/) — Production Pipeline
-
-Full end-to-end content pipeline: **Brief → Research → Write → Audit → Iterate → Publish-Ready**.
-
-- Hard gates at every phase (no writing without a complete brief)
-- Orchestrates `content-writer` and `content-audit` skills
-- 10-point pre-publication checklist with evidence
-- Content logging for building intelligence over time
-- Configurable brand voice template
-
-### ✍️ [content-writer/](./content-writer/) — Platform Writing Frameworks
-
-Platform-specific writing frameworks with brand voice configuration.
-
-- **LinkedIn**: 4 post formats with algorithm rules and timing
-- **X/Twitter**: Single tweets and threads with hook patterns
-- **Email**: Singles and sequences (Welcome, Launch, Nurture, Re-engagement)
-- **Ad Copy**: Facebook/Instagram and Google Ads formulas
-- **Landing Pages**: Above-fold formula, section flow, 40+ headline patterns
-- Anti-AI writing rules with 30+ poison words and replacements
-- Copy length reference for every format
-
-### 🎯 [content-audit/](./content-audit/) — Expert Panel Scoring
-
-Multi-expert quality checker with weighted scoring. Minimum 9.0/10 to publish.
-
-- **AI Pre-Check** — Binary gate: 3+ AI flags = rewrite
-- **Paul Graham lens** (25%) — Is the idea true, novel, clear?
-- **Voice & Storytelling** (25%) — Authentic or template?
-- **Actionability** (20%) — Monday morning test
-- **Hook & Flow** (15%) — Scroll-stop, tension, pacing
-- **Builder Authenticity** (10%) — Real numbers, real tools
-- **Reader Value** (5%) — Useful takeaway
-
-### 🔄 [content-repurpose/](./content-repurpose/) — 1→N Content Multiplication
-
-Transform one piece into 5-8 platform-optimized versions. Not reformatting — real adaptation.
-
-- Content atomization: break into reusable atomic units (insight, data, story, framework)
-- Transformation matrix: source × target with specific rules per pair
-- Platform adaptation: tone shifts, hook rewriting, CTA changes, algorithm optimization
-- Staggered publishing schedules (7-14 day spread for maximum reach)
-- 3 ready-to-use workflows: Weekly Sprint, Blog-to-Social Series, Video Cascade
-
-### 📊 [marketing-analytics/](./marketing-analytics/) — Measurement & Iteration
-
-The feedback loop that makes everything better over time.
-
-- Metrics framework with benchmarks by platform and audience size
-- Vanity metrics vs actionable metrics (follower count vs DM conversion rate)
-- Attribution models: first-touch, last-touch, multi-touch, self-reported
-- A/B testing guide for small audiences (the "7 out of 10" rule)
-- Weekly/monthly/quarterly report templates with filled examples
-- Ready-to-use content performance analysis prompts
+Skills aren't prompts. They're structured workflows with quality gates, scoring systems, and feedback loops that make your agent actually good at the job — not just "generate me a LinkedIn post" good. We're talking *9.0/10 scored by 6 weighted expert lenses before it touches your timeline* good.
 
 ---
 
-## Project Management
+## `marketing/` — The Full Marketing Stack
 
-### 📋 [baaton/](./baaton/) — Issue Tracking for Agents
+6 skills. 37 files. One pipeline. Everything from "who's my customer?" to "did that post actually work?"
 
-API-first project management via [Baaton](https://baaton.dev). Create issues, update statuses, post work summaries, and manage workflows.
+```
+Strategy → Create → Audit → Repurpose → Analyze → ♻️ Strategy
+```
+
+Most people ask their AI to "write a LinkedIn post." That's like asking a chef to cook without knowing who's eating. These skills fix that.
+
+| Skill | What it does | The boring version |
+|-------|-------------|-------------------|
+| [marketing-strategy/](./marketing/marketing-strategy/) | Figures out who you're selling to before you write a word | ICP, personas, positioning, messaging, competitive analysis |
+| [content-engine/](./marketing/content-engine/) | Runs the full show: brief → write → audit → iterate → ship | Pipeline orchestrator with hard gates |
+| [content-writer/](./marketing/content-writer/) | Knows that LinkedIn ≠ Twitter ≠ Email ≠ Ads | Platform-specific frameworks + anti-AI rules |
+| [content-audit/](./marketing/content-audit/) | 6 experts roast your draft. Minimum 9.0/10 or rewrite. | Paul Graham + storytelling + actionability + hook + builder + reader |
+| [content-repurpose/](./marketing/content-repurpose/) | 1 post → 5-8 pieces. Not copy-paste. Real adaptation. | Atomization + platform adaptation + scheduling |
+| [marketing-analytics/](./marketing/marketing-analytics/) | Tells you what actually worked (spoiler: not what you thought) | Metrics, benchmarks, A/B testing, reporting |
+
+### The audit is the secret weapon
+
+Your AI-written content sounds AI-written because nobody checks it. Our audit panel catches:
+- **30+ poison words** (if your post says "delve" or "leverage," it's dead on arrival)
+- **Structural AI patterns** (the "It's not X. It's Y." contrast that every LLM loves)
+- **6 weighted expert lenses** scoring independently (Paul Graham doesn't care about your hook — that's Nina Ramen's job)
+- **Binary AI pre-check** — 3+ flags and you rewrite. No scoring. No mercy.
+
+The result: content that passes as written by a human who actually builds things.
 
 ---
 
-## Installation
+## `baaton/` — Project Management for Agents
 
-### Claude Code
+API-first issue tracking via [Baaton](https://baaton.dev). Because your agent should be able to create a ticket, not just write code.
 
-```bash
-# Clone and install all marketing skills
-git clone https://github.com/rmzlb/baaton-skills.git /tmp/baaton-skills
-for skill in marketing-strategy content-engine content-writer content-audit content-repurpose marketing-analytics; do
-  cp -r /tmp/baaton-skills/$skill ~/.claude/skills/$skill
-done
-```
+---
 
-### Cursor / VS Code Copilot
+## Install
 
+### Claude Code (all marketing skills)
 ```bash
 git clone https://github.com/rmzlb/baaton-skills.git /tmp/baaton-skills
 for skill in marketing-strategy content-engine content-writer content-audit content-repurpose marketing-analytics; do
-  cp -r /tmp/baaton-skills/$skill .claude/skills/$skill
+  cp -r /tmp/baaton-skills/marketing/$skill ~/.claude/skills/$skill
 done
 ```
 
-### OpenClaw
-
+### Cursor / VS Code
 ```bash
-openclaw skills install rmzlb/baaton-skills/marketing-strategy
-openclaw skills install rmzlb/baaton-skills/content-engine
-# ... repeat for each skill
+git clone https://github.com/rmzlb/baaton-skills.git /tmp/baaton-skills
+for skill in marketing-strategy content-engine content-writer content-audit content-repurpose marketing-analytics; do
+  cp -r /tmp/baaton-skills/marketing/$skill .claude/skills/$skill
+done
 ```
 
-### Manual (any agent)
+### Just one skill
+```bash
+cp -r /tmp/baaton-skills/marketing/content-audit ~/.claude/skills/content-audit
+```
 
-Copy the skill directory to wherever your agent reads instructions. Each skill is self-contained with a `SKILL.md` entry point and `references/` directory.
+Each skill works standalone. Install all 6 for the full pipeline, or pick what you need.
 
 ---
 
-## Quick Start
+## Quick Start (5 minutes to your first audited post)
 
-1. Install the marketing skills
-2. Copy `content-engine/references/brand-voice-template.md` and fill in your voice
-3. Run `/marketing-strategy icp` to define your target audience
-4. Run `/content-engine linkedin "your topic"` to create a post
-5. The engine collects a brief → drafts → audits (9.0/10 minimum) → iterates → delivers
-6. Run `/content-repurpose linkedin` to transform it into X thread + email + carousel
-7. After 10+ posts, run `/marketing-analytics report` to see what's working
+```
+You:    /marketing-strategy icp
+Agent:  [Walks you through ICP definition with templates + examples]
+
+You:    /content-engine linkedin "why your onboarding is probably broken"
+Agent:  [Collects brief → drafts → runs 6-expert audit → scores 7.8/10
+         → iterates → rescores 9.2/10 → delivers final draft with checklist]
+
+You:    /content-repurpose linkedin [paste the post]
+Agent:  [Atomizes into 7 content atoms → generates X thread + email +
+         2 standalone tweets + carousel outline → staggered schedule]
+
+You:    /marketing-analytics report
+Agent:  [Weekly report: best performer, worst performer, pattern spotted,
+         recommended next test based on data]
+```
+
+One idea. Six platforms. Scored. Scheduled. Measured.
 
 ---
 
-## How Skills Work
+## What makes this different from "awesome prompts" repos
 
-Each skill follows the [AgentSkills](https://agentskills.io) open standard:
+| Feature | Prompt collection | These skills |
+|---------|------------------|-------------|
+| Quality gate | ❌ Hope for the best | ✅ 9.0/10 minimum, 6 expert lenses |
+| Anti-AI detection | ❌ "Write like a human" | ✅ 30+ poison words, structural pattern matching |
+| Verification loop | ❌ One-shot | ✅ Max 3 audit loops with evidence checklist |
+| Platform optimization | ❌ "Adapt for Twitter" | ✅ Algorithm rules, hook rewriting, tone shifts per platform |
+| Strategy upstream | ❌ Jump to writing | ✅ ICP → Persona → Positioning → Messaging → THEN write |
+| Measurement | ❌ Vibes | ✅ Metrics, benchmarks, A/B testing, quarterly strategy review |
+| Format | ❌ Copy-paste prompts | ✅ AgentSkills standard (works with 30+ tools) |
+
+---
+
+## Repo Structure
 
 ```
-skill-name/
-├── SKILL.md              # Main instructions (YAML frontmatter + markdown)
-└── references/           # Detailed reference files (loaded on demand)
-    ├── framework.md
-    └── examples.md
+baaton-skills/
+├── README.md
+├── LICENSE
+├── baaton/                        # Project management
+│   ├── SKILL.md
+│   ├── references/
+│   └── scripts/
+└── marketing/                     # Marketing suite (6 skills)
+    ├── marketing-strategy/        # ICP, positioning, GTM
+    ├── content-engine/            # Pipeline orchestrator
+    ├── content-writer/            # Platform frameworks
+    ├── content-audit/             # Expert panel scoring
+    ├── content-repurpose/         # 1→N multiplication
+    └── marketing-analytics/       # Metrics & reporting
 ```
-
-- `SKILL.md` = entry point with YAML frontmatter (name, description, triggers)
-- `references/` = detailed docs loaded only when needed (keeps context small)
-- The agent reads skill descriptions and decides when to apply them automatically
-
-Compatible with: Claude Code, Cursor, Gemini CLI, OpenClaw, Goose, VS Code Copilot, Roo Code, OpenHands, and [30+ other tools](https://agentskills.io).
 
 ---
 
 ## Contributing
 
-PRs welcome. Follow AgentSkills structure (SKILL.md + references/), keep SKILL.md under 500 lines, include real examples, test with at least one agent.
+Build a skill that makes agents less mediocre? Open a PR.
+
+Rules: AgentSkills format (SKILL.md + references/), under 500 lines, real examples, tested with at least one agent.
 
 ## License
 
-MIT
+MIT. Free forever. Go ship something.
