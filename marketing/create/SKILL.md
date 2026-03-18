@@ -1,8 +1,8 @@
 ---
-name: content-engine
+name: create
 description: |
   Full content production pipeline: Brief → Research → Write → Audit → Iterate → Publish-Ready.
-  Orchestrates content-writer and content-audit skills for end-to-end content creation.
+  Orchestrates write and audit skills for end-to-end content creation.
 
   Use when: creating any new piece of content from scratch (LinkedIn post, thread, email,
   ad copy, landing page), running a full content sprint, or when you need a systematic
@@ -12,8 +12,8 @@ description: |
   content from scratch, draft a post, write a LinkedIn post, write a tweet, write an email,
   write an ad, write a landing page.
 
-  NOT for: auditing an existing draft (use content-audit directly), writing assistance
-  only (use content-writer directly), or quick one-shot replies.
+  NOT for: auditing an existing draft (use audit directly), writing assistance
+  only (use write directly), or quick one-shot replies.
 argument-hint: "[platform] [topic or angle]"
 license: MIT
 metadata:
@@ -51,7 +51,7 @@ If invoked with arguments, use them to pre-fill the brief:
 - `$ARGUMENTS[0]` → platform (linkedin, twitter, email, ad, landing-page)
 - `$ARGUMENTS[1]` → topic/angle
 
-Example: `/content-engine linkedin "why onboarding is overrated"`
+Example: `/create linkedin "why onboarding is overrated"`
 
 ---
 
@@ -101,7 +101,7 @@ Output a **Research Brief** (3-5 bullet points) before proceeding to writing.
 
 ## Phase 3: Write
 
-Load the appropriate platform framework from `content-writer` skill:
+Load the appropriate platform framework from `write` skill:
 - For details, see `references/platform-frameworks.md`
 
 Steps:
@@ -121,7 +121,7 @@ Steps:
 
 ## Phase 4: Audit
 
-Hand the draft to `content-audit` skill for expert panel scoring.
+Hand the draft to `audit` skill for expert panel scoring.
 
 **Minimum score to proceed: 9.0/10**
 
@@ -224,5 +224,5 @@ Store in `content-log.md` or your CMS. This feeds future research phases.
 
 ## Related Skills
 
-- `content-audit/` — Expert panel scoring (called in Phase 4)
-- `content-writer/` — Platform frameworks (called in Phase 3)
+- `audit/` — Expert panel scoring (called in Phase 4)
+- `write/` — Platform frameworks (called in Phase 3)

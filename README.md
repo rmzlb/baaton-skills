@@ -18,12 +18,12 @@ Most people ask their AI to "write a LinkedIn post." That's like asking a chef t
 
 | Skill | What it does | The boring version |
 |-------|-------------|-------------------|
-| [marketing-strategy/](./marketing/marketing-strategy/) | Figures out who you're selling to before you write a word | ICP, personas, positioning, messaging, competitive analysis |
-| [content-engine/](./marketing/content-engine/) | Runs the full show: brief → write → audit → iterate → ship | Pipeline orchestrator with hard gates |
-| [content-writer/](./marketing/content-writer/) | Knows that LinkedIn ≠ Twitter ≠ Email ≠ Ads | Platform-specific frameworks + anti-AI rules |
-| [content-audit/](./marketing/content-audit/) | 6 experts roast your draft. Minimum 9.0/10 or rewrite. | Paul Graham + storytelling + actionability + hook + builder + reader |
-| [content-repurpose/](./marketing/content-repurpose/) | 1 post → 5-8 pieces. Not copy-paste. Real adaptation. | Atomization + platform adaptation + scheduling |
-| [marketing-analytics/](./marketing/marketing-analytics/) | Tells you what actually worked (spoiler: not what you thought) | Metrics, benchmarks, A/B testing, reporting |
+| [strategy/](./marketing/strategy/) | Figures out who you're selling to before you write a word | ICP, personas, positioning, messaging, competitive analysis |
+| [create/](./marketing/create/) | Runs the full show: brief → write → audit → iterate → ship | Pipeline orchestrator with hard gates |
+| [write/](./marketing/write/) | Knows that LinkedIn ≠ Twitter ≠ Email ≠ Ads | Platform-specific frameworks + anti-AI rules |
+| [audit/](./marketing/audit/) | 6 experts roast your draft. Minimum 9.0/10 or rewrite. | Paul Graham + storytelling + actionability + hook + builder + reader |
+| [repurpose/](./marketing/repurpose/) | 1 post → 5-8 pieces. Not copy-paste. Real adaptation. | Atomization + platform adaptation + scheduling |
+| [measure/](./marketing/measure/) | Tells you what actually worked (spoiler: not what you thought) | Metrics, benchmarks, A/B testing, reporting |
 
 ### The audit is the secret weapon
 
@@ -48,7 +48,7 @@ API-first issue tracking via [Baaton](https://baaton.dev). Because your agent sh
 ### Claude Code (all marketing skills)
 ```bash
 git clone https://github.com/rmzlb/baaton-skills.git /tmp/baaton-skills
-for skill in marketing-strategy content-engine content-writer content-audit content-repurpose marketing-analytics; do
+for skill in strategy create write audit repurpose measure; do
   cp -r /tmp/baaton-skills/marketing/$skill ~/.claude/skills/$skill
 done
 ```
@@ -56,14 +56,14 @@ done
 ### Cursor / VS Code
 ```bash
 git clone https://github.com/rmzlb/baaton-skills.git /tmp/baaton-skills
-for skill in marketing-strategy content-engine content-writer content-audit content-repurpose marketing-analytics; do
+for skill in strategy create write audit repurpose measure; do
   cp -r /tmp/baaton-skills/marketing/$skill .claude/skills/$skill
 done
 ```
 
 ### Just one skill
 ```bash
-cp -r /tmp/baaton-skills/marketing/content-audit ~/.claude/skills/content-audit
+cp -r /tmp/baaton-skills/marketing/audit ~/.claude/skills/audit
 ```
 
 Each skill works standalone. Install all 6 for the full pipeline, or pick what you need.
@@ -73,18 +73,18 @@ Each skill works standalone. Install all 6 for the full pipeline, or pick what y
 ## Quick Start (5 minutes to your first audited post)
 
 ```
-You:    /marketing-strategy icp
+You:    /strategy icp
 Agent:  [Walks you through ICP definition with templates + examples]
 
-You:    /content-engine linkedin "why your onboarding is probably broken"
+You:    /create linkedin "why your onboarding is probably broken"
 Agent:  [Collects brief → drafts → runs 6-expert audit → scores 7.8/10
          → iterates → rescores 9.2/10 → delivers final draft with checklist]
 
-You:    /content-repurpose linkedin [paste the post]
+You:    /repurpose linkedin [paste the post]
 Agent:  [Atomizes into 7 content atoms → generates X thread + email +
          2 standalone tweets + carousel outline → staggered schedule]
 
-You:    /marketing-analytics report
+You:    /measure report
 Agent:  [Weekly report: best performer, worst performer, pattern spotted,
          recommended next test based on data]
 ```
@@ -118,12 +118,12 @@ baaton-skills/
 │   ├── references/
 │   └── scripts/
 └── marketing/                     # Marketing suite (6 skills)
-    ├── marketing-strategy/        # ICP, positioning, GTM
-    ├── content-engine/            # Pipeline orchestrator
-    ├── content-writer/            # Platform frameworks
-    ├── content-audit/             # Expert panel scoring
-    ├── content-repurpose/         # 1→N multiplication
-    └── marketing-analytics/       # Metrics & reporting
+    ├── strategy/        # ICP, positioning, GTM
+    ├── create/            # Pipeline orchestrator
+    ├── write/            # Platform frameworks
+    ├── audit/             # Expert panel scoring
+    ├── repurpose/         # 1→N multiplication
+    └── measure/       # Metrics & reporting
 ```
 
 ---

@@ -1,5 +1,5 @@
 ---
-name: marketing-analytics
+name: measure
 description: |
   Marketing measurement, reporting, and iteration frameworks. Metrics by platform,
   attribution models, content performance analysis, A/B testing, and reporting templates.
@@ -7,8 +7,8 @@ description: |
   setting up tracking, A/B testing content, or reviewing marketing ROI.
   Trigger words: analytics, metrics, performance, report, ROI, conversion, A/B test,
   what's working, engagement rate, attribution, funnel analysis, dashboard.
-  NOT for: writing content (use content-writer), auditing quality (use content-audit),
-  or defining strategy (use marketing-strategy).
+  NOT for: writing content (use write), auditing quality (use audit),
+  or defining strategy (use strategy).
 argument-hint: "[action: report|analyze|test|benchmark] [platform]"
 ---
 
@@ -123,7 +123,7 @@ huge sample sizes. You don't.
 3. **Format** — Story vs. framework vs. contrarian
 4. **Posting time** — Morning vs. evening, weekday vs. weekend
 5. **Length** — Short (800 chars) vs. long (2,000 chars)
-6. **Platform** — Same content, different platforms (via content-repurpose)
+6. **Platform** — Same content, different platforms (via repurpose)
 
 ### How to Test with Small Audiences
 
@@ -171,7 +171,7 @@ Strategic review:
 - Content format ROI: [which formats justify the time invested]
 - Competitor moves: [anything changed in the landscape?]
 - Budget reallocation: [shift spend to what works]
-- Strategy update: [feed insights back to marketing-strategy]
+- Strategy update: [feed insights back to strategy]
 ```
 
 For detailed report templates with examples, see `references/reporting-templates.md`.
@@ -199,7 +199,7 @@ For ready-to-use analysis prompts, see `references/content-performance-queries.m
 
 ## Related Skills
 
-- `marketing-strategy/` — Feed quarterly insights back into strategy
-- `content-engine/` — Use performance data to write better briefs
-- `content-repurpose/` — Track which repurposed format performs best
-- `content-audit/` — Correlate audit scores with actual performance
+- `strategy/` — Feed quarterly insights back into strategy
+- `create/` — Use performance data to write better briefs
+- `repurpose/` — Track which repurposed format performs best
+- `audit/` — Correlate audit scores with actual performance

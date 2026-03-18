@@ -1,20 +1,20 @@
 ---
-name: content-writer
+name: write
 description: |
   Platform-specific writing frameworks for LinkedIn, X/Twitter, email, ad copy,
   and landing pages. Includes brand voice configuration, anti-AI writing rules,
   algorithm insights, and self-check checklists for each platform.
 
   Use when: writing a specific piece of content with platform-specific guidance,
-  applying brand voice to a draft, following the write phase of content-engine,
+  applying brand voice to a draft, following the write phase of create,
   or learning platform best practices.
 
   Trigger words: write a LinkedIn post, write a tweet, write an email, write ad copy,
   write a landing page, apply brand voice, platform framework, how do I write for LinkedIn,
   hook patterns, post structure.
 
-  NOT for: full pipeline with audit (use content-engine), quality scoring
-  (use content-audit), or strategy planning.
+  NOT for: full pipeline with audit (use create), quality scoring
+  (use audit), or strategy planning.
 argument-hint: "[platform] [format] [topic]"
 ---
 
@@ -45,7 +45,7 @@ If invoked with arguments:
 - `$ARGUMENTS[1]` → format
 - `$ARGUMENTS[2]` → topic/angle
 
-Example: `/content-writer linkedin contrarian "AI agents are overhyped"`
+Example: `/write linkedin contrarian "AI agents are overhyped"`
 
 ---
 

@@ -1,17 +1,17 @@
 ---
-name: content-audit
+name: audit
 description: |
   Multi-expert audit panel for content quality scoring. Ruthless, weighted scoring system
   with 6 expert lenses. Minimum threshold: 9.0/10 to publish.
 
   Use when: reviewing a content draft before publishing, getting a quality score,
   checking if content sounds human, detecting AI patterns, getting expert recommendations,
-  or when the content-engine skill requests an audit.
+  or when the create skill requests an audit.
 
   Trigger words: audit, review, score, rate, roast, check this post, is this good,
   expert panel, 10/10, sounds like AI, quality check, pre-publish check.
 
-  NOT for: writing from scratch (use content-writer), quick grammar checks,
+  NOT for: writing from scratch (use write), quick grammar checks,
   or SEO audits.
 argument-hint: "[paste draft text or file path]"
 context: fork
